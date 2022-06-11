@@ -1,0 +1,37 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5 
+            h1.text-center.mt-5= pagina
+
+            blockquote.text-center lee sobre nuestros clientes
+            .row.testimoniales
+                each comentario in comentarios 
+                    .col-md-6.col-lg-4.mb-4 
+                        .card 
+                            .card-body 
+                                blockquote.blockquote 
+                                p.mb-0 
+                                    | #{comentario.comentario}
+                                footer.blockquote-footer
+                                    | #{comentario.nombre}
+            .row
+                .col-md-12
+                    h2.d-block.w-100.text-center Agrega un Comentario
+                    if(errores)
+                        each error in errores 
+                            .alert.col.alert-danger.text-center= error.mensaje
+
+                .row.justify-content-center.col
+                    .col-md-8 
+                        form(action="" method="POST")
+                            .form-group 
+                                label(for="nombre") Nombre 
+                                input#nombre(type="text", placeholder="Tu nombre", name="nombre" class="form-control" value= nombre)
+                            .form-group 
+                                label(for="correo") Correo 
+                                input#correo(type="text", placeholder="Tu correo", name="correo" class="form-control" value= correo)
+                            .form-group 
+                                label(for="comentario") Comentario 
+                                textarea#comentario(name="comentario", cols="30", rows="10" class="form-control" placeholder="tu comentario",)= comentario
+                            input(type="submit", class="btn btn-success btn-block")

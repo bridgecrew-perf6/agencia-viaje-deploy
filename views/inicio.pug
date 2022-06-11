@@ -1,0 +1,39 @@
+extends ./layout/index
+
+
+block slider
+    .slider 
+        h1 Venecia
+        em aventura
+block contenido
+    main.container.mt-5 
+        h2.text-center-mb-5 Sobre Nosotros
+        .row.mb-5
+            .col-md-6
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat molestias iure nesciunt, quam facilis eaque atque. Vitae eum sint blanditiis, amet quibusdam molestiae nam eligendi optio illo provident, aspernatur aliquam.Iure ipsum dolores nobis odio ratione! Fuga, quae? Alias quos libero tenetur maiores dolorem iusto unde! Nihil nam a neque id sint. Fugiat corrupti nulla ipsum fugit maxime harum totam!
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat temporibus reiciendis quidem, modi sequi sunt! In, commodi quod corporis quas voluptatibus adipisci laboriosam quo tempore aspernat
+            .col-md-6
+                img(src="/img/inicio_nosotros.jpg", alt="", class="img-fluid")
+        include ./layout/bloqueViajes 
+    
+    .descuento 
+        .container
+            .row 
+                .col-md-6 
+                    .contenido
+                        h3 10% de Descuento 
+                        p.titulo Viaje a Canada 
+                        p.fecha 20 de ablir de 2022
+                        p.precio 4500€ EUROS
+    .container
+    h2.mt-5.text-center Comentarios
+        .row.testimoniales.p-4
+                each comentario in comentarios 
+                    .col-md-6.col-lg-4.mb-4 
+                        .card 
+                            .card-body 
+                                blockquote.blockquote 
+                                p.mb-0 
+                                    | #{comentario.comentario}
+                                footer.blockquote-footer
+                                    | #{comentario.nombre}       
